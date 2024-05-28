@@ -6,7 +6,7 @@ const isDark = useDark({
   selector: 'body',
   attribute: 'color-scheme',
   valueDark: 'dark',
-  valueLight: 'light',
+  valueLight: 'light'
 })
 
 const themeToggle = () => {
@@ -38,8 +38,11 @@ onUnmounted(() => {
   <nav ref="navbar" class="w-full p-5 bg-slate-500 text-white">
     <div class="flex items-center space-x-52 justify-center lg:gap-x-96">
       <a href="#" class="font-bold text-2xl">GeoInsite.</a>
-      <div class="flex items-center rounded-full bg-slate-400 p-2 cursor-pointer" @click="themeToggle">
-        <ion-icon :name=" isDark ? 'moon-outline' : 'sunny-outline' " class="size-5"></ion-icon>
+      <div
+        class="flex items-center rounded-full bg-slate-400 p-2 cursor-pointer"
+        @click="themeToggle"
+      >
+        <ion-icon :name="isDark ? 'moon-outline' : 'sunny-outline'" class="size-5"></ion-icon>
       </div>
     </div>
   </nav>

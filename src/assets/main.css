@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-[color-scheme='light']{
+[color-scheme='light'] {
   background-color: white;
   color: white;
 }
 
-[color-scheme='dark']{
+[color-scheme='dark'] {
   background-color: rgb(71 85 105);
   color: white;
 }
