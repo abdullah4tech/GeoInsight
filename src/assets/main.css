@@ -2,9 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+@keyframes fadeToDark {
+  0% {
+    background-color: white;
+    color: black;
+  }
+  100% {
+    background-color: rgb(71, 85, 105);
+    color: white;
+  }
+}
+
+@keyframes fadeToLight {
+  0% {
+    background-color: rgb(71, 85, 105);
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
+
+body.fade-to-dark {
+  animation: fadeToDark .3s forwards;
+}
+
+body.fade-to-light {
+  animation: fadeToLight .3s forwards;
+}
+
 [color-scheme='light'] {
   background-color: white;
-  color: white;
+  color: black;
 }
 
 [color-scheme='dark'] {

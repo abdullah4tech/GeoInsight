@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { watch } from 'vue'
 import { useDark } from '@vueuse/core'
 
 const isDark = useDark({
@@ -10,34 +10,34 @@ const isDark = useDark({
 })
 
 const themeToggle = () => {
+  const body = document.body
+  if (isDark.value) {
+    body.classList.remove('fade-to-dark')
+    body.classList.add('fade-to-light')
+  } else {
+    body.classList.remove('fade-to-light')
+    body.classList.add('fade-to-dark')
+  }
   isDark.value = !isDark.value
 }
 
-// Ref for the navbar
-const navbar = ref(null)
-
-// Function to handle scroll event
-const handleScroll = () => {
-  if (window.scrollY > 0) {
-    navbar.value.classList.add('fixed', 'top-0', 'left-0', 'w-full')
+// Watch for changes in the theme and clean up classes
+watch(isDark, (newVal) => {
+  const body = document.body
+  if (newVal) {
+    body.classList.remove('fade-to-light')
+    body.classList.add('fade-to-dark')
   } else {
-    navbar.value.classList.remove('fixed', 'top-0', 'left-0', 'w-full')
+    body.classList.remove('fade-to-dark')
+    body.classList.add('fade-to-light')
   }
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
 <template>
-  <nav ref="navbar" class="w-full p-5 bg-slate-500 text-white">
-    <div class="flex items-center space-x-52 justify-center lg:gap-x-96">
-      <a href="#" class="font-bold text-2xl">GeoInsite.</a>
+  <nav class="w-full p-5 bg-slate-500 text-white sticky z-[1000]">
+    <div class="flex items-center gap-48 justify-center md:gap-96">
+      <a href="#" class="font-bold text-base md:mr-56 lg:mr-96 lg:text-2xl">GeoInsite.</a>
       <div
         class="flex items-center rounded-full bg-slate-400 p-2 cursor-pointer"
         @click="themeToggle"
@@ -47,11 +47,3 @@ onUnmounted(() => {
     </div>
   </nav>
 </template>
-
-<style>
-.fixed {
-  position: fixed;
-  margin-top: 0; /* Add any desired margin */
-  box-shadow: 0 0 50px rgb(53, 53, 53);
-}
-</style>
