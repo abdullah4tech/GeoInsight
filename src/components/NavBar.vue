@@ -35,14 +35,14 @@ watch(isDark, (newVal) => {
 </script>
 
 <template>
-  <nav class="w-full p-5 bg-slate-500 text-white sticky z-[1000]">
-    <div class="flex items-center gap-48 justify-center md:gap-96">
-      <a href="#" class="font-bold text-base md:mr-56 lg:mr-96 lg:text-2xl">GeoInsite.</a>
+  <nav class="w-full p-5 bg-slate-500 text-white fixed top-0 left-0 z-50">
+    <div class="flex items-center justify-between max-w-4xl mx-auto">
+      <a href="#" class="font-bold text-base md:text-xl lg:text-2xl">GeoInsite.</a>
       <div
         class="flex items-center rounded-full bg-slate-400 p-2 cursor-pointer"
         @click="themeToggle"
       >
-        <ion-icon :name="isDark ? 'moon-outline' : 'sunny-outline'" class="size-5"></ion-icon>
+        <ion-icon :name="isDark ? 'moon-outline' : 'sunny-outline'" class="text-lg md:text-xl"></ion-icon>
       </div>
     </div>
   </nav>

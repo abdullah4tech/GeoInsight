@@ -5,6 +5,9 @@ export default {
     extend: {
       zIndex: {
         '1000' : '1000',
+      },
+      fontFamily: {
+        'poppins' :  ['Poppins', 'sans-serif'],
       }
     },
   },
