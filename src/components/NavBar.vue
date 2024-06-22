@@ -36,7 +36,7 @@ watch(isDark, (newVal) => {
 
 <template>
   <nav class="w-full p-5 bg-slate-500 text-white fixed top-0 left-0 z-50">
-    <div class="flex items-center justify-between max-w-4xl mx-auto">
+    <div class="flex items-center justify-between max-w-6xl mx-auto">
       <a href="#" class="font-bold text-base md:text-xl lg:text-2xl">GeoInsite.</a>
       <div
         class="flex items-center rounded-full bg-slate-400 p-2 cursor-pointer"

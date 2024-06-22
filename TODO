@@ -1,0 +1,7 @@
+
+- When one of the countinents is click
+  - It should fetch all of the countries for that countinents
+  - It should pass that to a props, store(state), or lifecycle of hooks to mount the data 
+  fetch to a component 
+  - It should display the number of countries first from the fetched data
+  - Then i'm gonna sort the data display country name 
